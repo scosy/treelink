@@ -1,0 +1,22 @@
+<div>
+  <%= form_with model: current_user, url: password_path, method: :patch do |f| %>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div>
+      <%= f.label :password_challenge %>
+      <%= f.password_field :password_challenge %>
+    </div>
+
+    <div>
+      <%= f.submit "Enregistrer" %>
+    </div>
+    <% end %>
+</div>

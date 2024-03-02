@@ -1,0 +1,27 @@
+<h1>Inscription</h1>
+
+<%= form_with model: @user, url: registration_path do |f| %>
+  <% if f.object.errors.any? %>
+    <% f.object.errors.full_messages.each do |message| %>
+      <div><%= message.msg %></div>
+    <% end %>
+  <% end %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+    <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :passwordconfirmation %>
+  </div>
+
+  <div>
+    <%= f.submit, "Valider" %>
+  </div>
+<% end %>

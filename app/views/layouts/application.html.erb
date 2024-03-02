@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <div><%= notice %></div>
+    <div><%= alert %></div>
+    
+    <% if user_signed_in? %>
+      <%= link_to 'Modifier mon mot de passe', edit_password_path %>
+      <%= button_to 'Déconnexion', session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Inscription', new_registration_path %>
+      <%= link_to 'Connexion', new_session_path %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
