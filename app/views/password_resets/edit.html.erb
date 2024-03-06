@@ -1,0 +1,22 @@
+<div>
+  <%= form_with model: @user, url: password_reset_path(token: params[:token]) do |f| %>
+    <% if f.object.errors.any? %>
+      <% f.object.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    <% end %>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div>
+      <%= f.submit "Enregistrer" %>
+    </div>
+    <% end %>
+</div>

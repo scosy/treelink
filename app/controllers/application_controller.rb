@@ -1,3 +1,5 @@
+require "byebug"
+
 class ApplicationController < ActionController::Base
   private
 

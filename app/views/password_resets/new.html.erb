@@ -1,0 +1,12 @@
+<div>
+  <%= form_with model: @user, url: password_reset_path do |f| %>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div>
+      <%= f.submit "Réinitialiser le mot de passe" %>
+    </div>
+  <% end %>
+</div>
