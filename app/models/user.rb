@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :pages
+  has_many :links, through: :pages
+
   validates :email, presence: true
 
   normalizes :email, with: ->(email) { email.strip.downcase }
