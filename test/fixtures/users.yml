@@ -3,9 +3,9 @@
 one:
   id: 1
   email: test@email.com
-  password_digest: password
+  password_digest: "$2a$12$dR6LErD/.Ovjc0eFMjgBxOGbSmONe2Ri64hvTxGUZ8U6J14icsnBC"
 
 two:
   id: 2
   email: email@test.com
-  password_digest: password
+  password_digest: "$2a$12$dR6LErD/.Ovjc0eFMjgBxOGbSmONe2Ri64hvTxGUZ8U6J14icsnBC"
