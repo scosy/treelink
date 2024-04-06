@@ -2,48 +2,49 @@ require "test_helper"
 
 class LinksControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @page = pages(:one)
     @link = links(:one)
     sign_in_as(users(:one))
   end
 
   test "should get index" do
-    get links_url
+    get page_links_url(@page.id)
     assert_response :success
   end
 
   test "should get new" do
-    get new_link_url
+    get new_page_link_url(@page.id)
     assert_response :success
   end
 
   test "should create link" do
     assert_difference("Link.count") do
-      post links_url, params: { link: { page_id: @link.page_id, source: @link.source, title: @link.title, views: @link.views } }
+      post page_links_url(@page.id), params: { link: { source: @link.source, title: @link.title } }
     end
 
-    assert_redirected_to link_url(Link.last)
+    assert_redirected_to page_link_url(@page.id, Link.last.id)
   end
 
   test "should show link" do
-    get link_url(@link)
+    get page_link_url(@page.id, @link.page_id)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_link_url(@link)
+    get edit_page_link_url(@page.id, @link.id)
     assert_response :success
   end
 
   test "should update link" do
-    patch link_url(@link), params: { link: { page_id: @link.page_id, source: @link.source, title: @link.title, views: @link.views } }
-    assert_redirected_to link_url(@link)
+    patch page_link_url(@page.id, @link.id), params: { link: { source: @link.source, title: @link.title, views: @link.views } }
+    assert_redirected_to page_link_url(@page.id, @link.id)
   end
 
   test "should destroy link" do
     assert_difference("Link.count", -1) do
-      delete link_url(@link)
+      delete page_link_url(@page.id, @link.id)
     end
 
-    assert_redirected_to links_url
+    assert_redirected_to page_links_url(@page.id)
   end
 end

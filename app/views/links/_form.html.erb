@@ -1,4 +1,4 @@
-<%= form_with(model: link) do |form| %>
+<%= form_for([page, link]) do |form| %>
   <% if link.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :page_id, value: @page.id %>
+
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
@@ -19,16 +21,6 @@
   <div>
     <%= form.label :source, style: "display: block" %>
     <%= form.text_area :source %>
-  </div>
-
-  <div>
-    <%= form.label :views, style: "display: block" %>
-    <%= form.number_field :views %>
-  </div>
-
-  <div>
-    <%= form.label :page_id, style: "display: block" %>
-    <%= form.text_field :page_id %>
   </div>
 
   <div>

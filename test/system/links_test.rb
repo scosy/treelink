@@ -25,7 +25,7 @@ class LinksTest < ApplicationSystemTestCase
   end
 
   test "should update Link" do
-    visit link_url(@link)
+    visit page_link_url(@link)
     click_on "Edit this link", match: :first
 
     fill_in "Page", with: @link.page_id
@@ -39,7 +39,7 @@ class LinksTest < ApplicationSystemTestCase
   end
 
   test "should destroy Link" do
-    visit link_url(@link)
+    visit page_link_url(@link)
     click_on "Destroy this link", match: :first
 
     assert_text "Link was successfully destroyed"
